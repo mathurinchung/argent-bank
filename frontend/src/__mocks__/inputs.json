@@ -1,0 +1,5 @@
+[
+  { "id": "username", "label": "Username", "type": "text" },
+  { "id": "password", "label": "Password", "type": "password" },
+  { "id": "remember-me", "label": "Remember me", "type": "checkbox" }
+]
