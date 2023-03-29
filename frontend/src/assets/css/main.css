@@ -289,3 +289,30 @@ body, .App {
     width: 200px;
   }
 }
+
+
+/** EditProfile **/
+.edit-profile form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 25px;
+  row-gap: 15px;
+}
+
+.edit-profile form input {
+  display: block;
+  padding: 5px;
+  width: 300px;
+  height: 45px;
+  font-size: 1.2rem;
+}
+
+.edit-profile form button {
+  display: block;
+  width: 140px;
+  height: 43px;
+}
+
+.edit-profile form input:first-of-type, .edit-profile form button:first-of-type {
+  justify-self: end;
+}

@@ -1,7 +1,7 @@
-import { Main } from '../components/Layout';
-import { Hero } from '../components/Banner';
-import { FeatureItem } from '../components/Feature';
-import features from '../__mocks__/features.json';
+import { Main } from '../../components/Layout';
+import { Hero } from '../../components/Banner';
+import { FeatureItem } from '../../components/Feature';
+import features from '../../data/features.json';
 
 function Home() {
   return (
