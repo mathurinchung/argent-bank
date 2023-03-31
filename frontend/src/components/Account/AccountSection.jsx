@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { formatNumber } from '../../utils';
 
 function AccountSection({ account }) {
@@ -14,5 +15,9 @@ function AccountSection({ account }) {
     </section>
   );
 }
+
+AccountSection.propTypes = {
+  account: PropTypes.object.isRequired
+};
 
 export default AccountSection;

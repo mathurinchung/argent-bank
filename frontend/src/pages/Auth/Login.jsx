@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLoginUser, useGetUserProfile } from '../../hooks';
+import { useLoginUser, useGetUserProfile, useExpiresIn } from '../../hooks';
 import { LoginForm } from '../../components/Forms';
 import { Main } from '../../components/Layout';
 
@@ -8,23 +8,30 @@ function Login() {
   const navigate = useNavigate();
   const { loginUser } = useLoginUser();
   const { getUser } = useGetUserProfile();
+  const { rememberMe } = useExpiresIn()
   const [ credentials, setCredentials ] = useState({ email: '', password: '' });
+  const [ checked, setChecked ] = useState(false);
 
   const handleChange = ({ currentTarget }) => {
     const { id, value } = currentTarget;
     const name = (id === 'username') ? 'email' : id;
   
-    setCredentials({ ...credentials, [ name ]: value });
+    (name === 'remember-me') ? setChecked(currentTarget.checked) : setCredentials({ ...credentials, [ name ]: value });
   };
 
   const handleSubmit = async event => {
     event.preventDefault();
 
-    await loginUser(credentials);
+    try {
+      await loginUser(credentials);
+      rememberMe(checked);
 
-    getUser();
-
-    navigate('/profile')
+      getUser();
+  
+      navigate('/profile');
+    } catch(error) {
+      console.error(error);
+    }
   };
 
   return (

@@ -1,6 +1,7 @@
 // import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { InputWrapper, InputRemember } from '../Input';
-import inputs from '../../data/inputs.json'
+import inputs from '../../data/inputs.json';
 
 function LoginForm({ submit, change }) {
   return (
@@ -8,8 +9,8 @@ function LoginForm({ submit, change }) {
       {
         inputs.map(input => {
           return (input.id !== 'remember-me') 
-                ? <InputWrapper key={ input.id } input={ input } change={ change } />
-                : <InputRemember key={ input.id } input={ input } />
+                   ? <InputWrapper key={ input.id } input={ input } change={ change } />
+                   : <InputRemember key={ input.id } input={ input } change={ change } />
         })
       }
       {/* <!-- PLACEHOLDER DUE TO STATIC SITE --> */}
@@ -19,6 +20,11 @@ function LoginForm({ submit, change }) {
       {/* <!--  --> */}
     </form>
   );
+}
+
+LoginForm.propTypes = {
+  submit: PropTypes.func.isRequired,
+  change: PropTypes.func.isRequired
 }
 
 export default LoginForm

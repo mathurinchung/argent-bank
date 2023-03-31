@@ -1,12 +1,13 @@
-import UserServices from '../services/user';
+import UserServices from '../services/user.services';
 
 function useLoginUser() {
-  const loginUser = async credentials => {
+
+  const loginUser = async (credentials) => {
     try {
       const serviceData = new UserServices();
       const { data } = await serviceData.loginUser(credentials);
   
-      localStorage.setItem('token', JSON.stringify(data.body.token));
+      localStorage.setItem('accessToken', JSON.stringify(data.body.token));
     } catch (error) {
       console.error(error);
     }

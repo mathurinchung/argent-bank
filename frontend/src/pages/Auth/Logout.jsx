@@ -1,7 +1,12 @@
+import { useEffect } from 'react';
 import { useLogoutUser } from '../../hooks';
 
 function Logout() {
-  useLogoutUser();
+  const { logoutUser } = useLogoutUser();
+
+  useEffect(() => {
+    logoutUser();
+  }, []);
 
   return (
     <></>

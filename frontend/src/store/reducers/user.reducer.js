@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const slice = {
   name: "user",
-  initialState: { success: false, current: {} },
+  initialState: { isLoggedIn: false, current: {} },
   reducers: {
     setCurrentUser: (state, { payload }) => {
-      state.success = payload.success;
+      state.isLoggedIn = payload.isLoggedIn;
       state.current = payload.body;
     },
     setUpdateUser: (state, { payload }) => {

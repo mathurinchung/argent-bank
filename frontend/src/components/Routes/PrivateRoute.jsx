@@ -2,9 +2,9 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function PrivateRoute() {
-  const success = useSelector(state => state.user.success);
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
 
-  return (!success) ? (<Navigate to="/login" />) : (<Outlet />);
+  return (!isLoggedIn) ? (<Navigate to="/login" />) : (<Outlet />);
 }
 
 export default PrivateRoute;

@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 import AuthNav from './AuthNav';
 import PrivateNav from './PrivateNav';
 import logo from '../../assets/img/argentBankLogo.png';
 
 function Nav() {
-  const success = useSelector(state => state.user.success);
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   const { firstName } = useSelector(state => state.user.current);
 
   return (
@@ -16,10 +16,11 @@ function Nav() {
       </NavLink>
 
       <div>
-      { (!success) ? <AuthNav /> : <PrivateNav firstName={ firstName } /> }
+      { (!isLoggedIn) ? <AuthNav /> : <PrivateNav firstName={ firstName } /> }
       </div>
     </nav>
   );
 }
 
 export default Nav;
+

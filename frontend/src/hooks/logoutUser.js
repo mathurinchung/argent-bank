@@ -1,17 +1,18 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useGetUserProfile from './getUser';
+import { useDispatch } from 'react-redux';
+import { getUserProfile } from '../store/actions/user.actions';
 
 function useLogoutUser() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { getUser } = useGetUserProfile();
 
-  useEffect(() => {
+  const logoutUser = () => {
     localStorage.clear();
-  
-    getUser();
+    dispatch(getUserProfile({ isLoggedIn: false, body: {} }));
     navigate('/');
-  }, []);
+  };
+
+  return { logoutUser };
 }
 
 export default useLogoutUser;

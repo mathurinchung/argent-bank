@@ -11,7 +11,7 @@ export const getUserProfile = payload => {
 };
 
 export const updateUserProfile = payload => {
-  return async dispatch => {
+  return dispatch => {
     try {
       return dispatch(setUpdateUser(payload));
     } catch (error) {

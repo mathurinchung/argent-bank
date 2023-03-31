@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 function ProfileHeader({ userProfile, click }) {
   return (
     <div className="header">
@@ -6,5 +8,10 @@ function ProfileHeader({ userProfile, click }) {
     </div>
   );
 }
+
+ProfileHeader.propTypes = {
+  userProfile: PropTypes.object.isRequired,
+  click: PropTypes.func.isRequired
+};
 
 export default ProfileHeader;

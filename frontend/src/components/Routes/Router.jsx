@@ -9,7 +9,6 @@ function Router() {
   return (
     <Routes>
       <Route path="/" element={ <Home /> } />
-      <Route path="/logout" element={ <Logout /> } />
 
       <Route path="/notfound" element={ <p>404</p> } />
       <Route path="*" element={ <Navigate to="/notfound" /> } />
@@ -20,6 +19,7 @@ function Router() {
 
       <Route element={ <PrivateRoute /> }>
         <Route path="/profile" element={ <Profile /> } />
+        <Route path="/logout" element={ <Logout /> } />
       </Route>
     </Routes>
   );

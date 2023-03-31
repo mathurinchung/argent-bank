@@ -1,4 +1,5 @@
 import { Api } from '../api';
+import { getAuthHeader } from '../utils/auth-header';
 
 class UserServices {
   constructor() {
@@ -14,12 +15,12 @@ class UserServices {
     return await this.api.post({ endpoint: `/${ this.key }/login`, data });
   }
 
-  getUserProfile = async (token) => {
-    return await this.api.post({ endpoint: `/${ this.key }/profile`, data: {}, config: { headers: { "Authorization": `Bearer ${ token }` } } });
+  getUserProfile = async () => {
+    return await this.api.post({ endpoint: `/${ this.key }/profile`, data: {}, config: { headers: getAuthHeader() } });
   }
 
-  updateUserProfile = async (data, token) => {
-    return await this.api.put({ endpoint: `/${ this.key }/profile`, data, config: { headers: { "Authorization": `Bearer ${ token }` } } });
+  updateUserProfile = async data => {
+    return await this.api.put({ endpoint: `/${ this.key }/profile`, data, config: { headers: getAuthHeader() } });
   }
 }
 

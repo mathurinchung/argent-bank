@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 function InputWrapper({ input, change }) {
   return (
     <div className="input-wrapper">
@@ -6,5 +8,10 @@ function InputWrapper({ input, change }) {
     </div>
   );
 }
+
+InputWrapper.propTypes = {
+  input: PropTypes.object.isRequired,
+  change: PropTypes.func.isRequired
+};
 
 export default InputWrapper;
