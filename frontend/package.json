@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "doc": "jsdoc"
+    "doc": "jsdoc -c jsdoc.config.json"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",

@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLoginUser, useGetUserProfile, useExpiresIn } from '../../hooks';
-import { LoginForm } from '../../components/Forms';
-import { Main } from '../../components/Layout';
+import { useLoginUser, useGetUserProfile, useExpiresIn, useErrorsHandling } from '@/hooks';
+import { LoginForm } from '@/components/Forms';
+import { Main } from '@/components/Layout';
 
 function Login() {
   const navigate = useNavigate();
   const { loginUser } = useLoginUser();
   const { getUser } = useGetUserProfile();
   const { rememberMe } = useExpiresIn()
+  const { errorsHandling } = useErrorsHandling();
+
   const [ credentials, setCredentials ] = useState({ email: '', password: '' });
   const [ checked, setChecked ] = useState(false);
 
@@ -31,6 +33,7 @@ function Login() {
       navigate('/profile');
     } catch(error) {
       console.error(error);
+      errorsHandling(error);
     }
   };
 

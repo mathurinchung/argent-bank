@@ -8,14 +8,12 @@ function App() {
   const location = useLocation();
   const { getExpiresIn } = useExpiresIn();
   const { getUser } = useGetUserProfile();
-  
+
   useEffect(() => {
     getExpiresIn();
   }, [ location.pathname ]);
 
-  useEffect(() => {
-    getUser();
-  }, []);
+  useEffect(() => { getUser(); }, []);
 
   return (
     <div className="App">

@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useUpdateUserProfile } from '../../hooks';
-import { Main } from '../../components/Layout';
-import { ProfileHeader, EditProfile, AccountSection } from '../../components/Account';
-import accounts from '../../data/accounts.json';
+import { useUpdateUserProfile, useErrorsHandling } from '@/hooks';
+import { Main } from '@/components/Layout';
+import { ProfileHeader, EditProfile, AccountSection } from '@/components/Account';
+import accounts from '@/data/accounts.json';
 
 function Profile() {
+  const { errorsHandling } = useErrorsHandling();
   const { firstName, lastName } = useSelector(state => state.user.current);
 
   const [ edit, setEdit ] = useState(false);
@@ -24,16 +25,20 @@ function Profile() {
     setUserProfile((value.trim() === '') ? { ...userProfile } : { ...userProfile, [ id ]: value });
   };
   
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
-    if (userProfile.firstName.trim() === '') setUserProfile({ ...userProfile, firstName });
-    if (userProfile.lastName.trim() === '') setUserProfile({ ...userProfile, lastName });
-    if (userProfile.firstName.trim() !== '' || userProfile.lastName.trim() !== '') updateUser(userProfile);
+    try {
+      if (userProfile.firstName.trim() === '') setUserProfile({ ...userProfile, firstName });
+      if (userProfile.lastName.trim() === '') setUserProfile({ ...userProfile, lastName });
 
-    updateUser(userProfile);
+      await updateUser(userProfile);
 
-    setEdit(false);
+      setEdit(false);
+    } catch(error) {
+      console.log(error);
+      errorsHandling(error);
+    }
   };
 
   return (

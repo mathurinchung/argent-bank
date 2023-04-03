@@ -1,5 +1,5 @@
-import { Api } from '../api';
-import { getAuthHeader } from '../utils/auth-header';
+import { Api } from '@/api';
+import { getAuthHeader } from '@/utils/auth-header';
 
 class UserServices {
   constructor() {

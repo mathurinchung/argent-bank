@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { getUserProfile } from '../store/actions/user.actions';
+import { getUserProfile } from '@/store/actions/user.actions';
 
 function useExpiresIn() {
   const dispatch = useDispatch();

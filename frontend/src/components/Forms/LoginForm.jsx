@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { InputWrapper, InputRemember } from '../Input';
-import inputs from '../../data/inputs.json';
+import inputs from '@/data/inputs.json';
 
 function LoginForm({ submit, change }) {
   return (

@@ -71,7 +71,7 @@ body, .App {
 }
 
 .hero {
-  background-image: url('../img/bank-tree.jpeg');
+  background-image: url('../assets/images/bank-tree.jpeg');
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -315,4 +315,32 @@ body, .App {
 
 .edit-profile form input:first-of-type, .edit-profile form button:first-of-type {
   justify-self: end;
+}
+
+
+/** Errors **/
+.Errors {
+  color: #fff;
+}
+
+.ErrorCode {
+  margin-bottom: 0;
+  font-size: 250px;
+  font-weight: 700;
+}
+
+.ErrorDescription {
+  font-size: 45px;
+  font-weight: 700;
+}
+
+.ErrorMessage {
+  margin-bottom: 75px;
+  font-size: 30px;
+}
+
+.ErrorLink {
+  font-size: 20px;
+  color: inherit;
+  text-decoration: none;
 }

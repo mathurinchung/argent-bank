@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLogoutUser } from '../../hooks';
+import { useLogoutUser } from '@/hooks';
 
 function Logout() {
   const { logoutUser } = useLogoutUser();
