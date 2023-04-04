@@ -9,7 +9,7 @@ function useExpiresIn() {
       const timestamp = new Date();
       localStorage.setItem('timestamp', new Date(timestamp).toISOString());
       // localStorage.setItem('expiresin', new Date(timestamp.getTime() + 24 * 60 * 60 * 1000).toISOString());
-      localStorage.setItem('expiresIn', new Date(timestamp.getTime() + 60 * 1000).toISOString());
+      localStorage.setItem('expiresIn', new Date(timestamp.getTime() + 24 * 60 * 60 * 1000).toISOString());
     }
   }
 
@@ -21,7 +21,6 @@ function useExpiresIn() {
       dispatch(getUserProfile({ isLoggedIn: false, body: {} }));
     }
   };
-
 
   return { rememberMe, getExpiresIn };
 }
