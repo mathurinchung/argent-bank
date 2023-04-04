@@ -4,9 +4,9 @@ import errors from '@/data/errors.json';
 
 function Errors() {
   const { errorParams } = useParams();
+  // if (errorParams === 'unauthorized') return (<Navigate to="/login" />);
 
   const error = errors.find(error => error.params === errorParams);
-
   if (!error) return (<Navigate to="/error/notfound" />);
 
   return (

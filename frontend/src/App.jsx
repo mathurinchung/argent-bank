@@ -9,9 +9,7 @@ function App() {
   const { getExpiresIn } = useExpiresIn();
   const { getUser } = useGetUserProfile();
 
-  useEffect(() => {
-    getExpiresIn();
-  }, [ location.pathname ]);
+  useEffect(() => { getExpiresIn(); }, [ location.pathname ]);
 
   useEffect(() => { getUser(); }, []);
 
