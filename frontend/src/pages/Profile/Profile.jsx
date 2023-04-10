@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useUpdateUserProfile, useErrorsHandling } from '@/hooks';
 import { Main } from '@/components/Layout';
@@ -13,6 +14,7 @@ import accounts from '@/data/accounts.json';
 function Profile() {
   const { errorsHandling } = useErrorsHandling();
   const { firstName, lastName } = useSelector(state => state.user.current);
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
 
   const [ edit, setEdit ] = useState(false);
   const [ userProfile, setUserProfile ] = useState({ firstName, lastName });
@@ -58,6 +60,8 @@ function Profile() {
       errorsHandling(error);
     }
   };
+
+  if (!isLoggedIn) return <Navigate to="/error/unauthorized" /> 
 
   return (
     <Main className="main bg-dark">

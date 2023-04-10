@@ -6,7 +6,7 @@ import errors from '@/data/errors.json';
  * Errors component function.
  * It displays the error page UI based on the error params in the URL.
  *
- * @returns {JSX.Element} Errors component UI.
+ * @returns { JSX.Element } Errors component UI.
  */
 function Errors() {
   const { errorParams } = useParams();

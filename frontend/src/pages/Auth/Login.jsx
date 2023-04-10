@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { useLoginUser, useGetUserProfile, useExpiresIn, useErrorsHandling } from '@/hooks';
 import { LoginForm } from '@/components/Forms';
 import { Main } from '@/components/Layout';
@@ -15,6 +16,7 @@ function Login() {
   const { getUser } = useGetUserProfile();
   const { rememberMe } = useExpiresIn()
   const { errorsHandling } = useErrorsHandling();
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
 
   const [ credentials, setCredentials ] = useState({ email: '', password: '' });
   const [ checked, setChecked ] = useState(false);
@@ -51,6 +53,8 @@ function Login() {
       errorsHandling(error);
     }
   };
+
+  if (isLoggedIn) return <Navigate to="/profile" />
 
   return (
     <Main className="main bg-dark">
