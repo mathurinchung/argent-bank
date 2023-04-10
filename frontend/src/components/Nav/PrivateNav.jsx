@@ -1,6 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+/**
+ * A React component that renders a private navigation bar using the NavLink component from react-router-dom.
+ *
+ * @param { String } firstName - The first name of the authenticated user.
+ * @returns { JSX.Element } A JSX element representing the private navigation bar.
+ */
 function PrivateNav({ firstName }) {
   return (
     <>
@@ -17,7 +23,7 @@ function PrivateNav({ firstName }) {
 }
 
 PrivateNav.propTypes = {
-  firstName: PropTypes.string
+  firstName: PropTypes.string // The first name of the authenticated user.
 };
 
 export default PrivateNav;

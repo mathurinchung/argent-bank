@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import AuthNav from './AuthNav';
 import PrivateNav from './PrivateNav';
-import logo from '@/assets/images/argentBankLogo.png';
+import logo from '/assets/images/argentBankLogo.png';
 
 function Nav() {
   const isLoggedIn = useSelector(state => state.user.isLoggedIn);

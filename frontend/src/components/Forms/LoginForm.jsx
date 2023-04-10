@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import { InputWrapper, InputRemember } from '../Input';
 import inputs from '@/data/inputs.json';
 
+/**
+ * A component that renders a login form with a submit button.
+ *
+ * @param { Function } submit - The function to be called when the form is submitted.
+ * @param { Function } change - The function to be called when a form input value changes.
+ * @returns { JSX.Element } - A React component that renders a login form.
+ */
 function LoginForm({ submit, change }) {
   return (
     <form onSubmit={ submit }>
@@ -23,8 +30,8 @@ function LoginForm({ submit, change }) {
 }
 
 LoginForm.propTypes = {
-  submit: PropTypes.func.isRequired,
-  change: PropTypes.func.isRequired
+  submit: PropTypes.func.isRequired, // The callback function to handle form submission.
+  change: PropTypes.func.isRequired  // The callback function to handle changes to form inputs.
 }
 
 export default LoginForm

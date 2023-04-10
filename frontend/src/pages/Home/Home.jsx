@@ -3,6 +3,11 @@ import { Hero } from '@/components/Banner';
 import { FeatureItem } from '@/components/Feature';
 import features from '@/data/features.json';
 
+/**
+ * Renders the homepage with a hero section and a list of features.
+ *
+ * @returns {JSX.Element} The rendered homepage.
+ */
 function Home() {
   return (
     <Main>

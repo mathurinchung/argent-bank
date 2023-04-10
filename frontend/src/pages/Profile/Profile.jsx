@@ -5,6 +5,11 @@ import { Main } from '@/components/Layout';
 import { ProfileHeader, EditProfile, AccountSection } from '@/components/Account';
 import accounts from '@/data/accounts.json';
 
+/**
+ * React component that displays a user's profile information and allows the user to edit their profile.
+ *
+ * @returns JSX element
+ */
 function Profile() {
   const { errorsHandling } = useErrorsHandling();
   const { firstName, lastName } = useSelector(state => state.user.current);
@@ -14,17 +19,30 @@ function Profile() {
 
   const { updateUser } = useUpdateUserProfile();
 
+  /**
+   * Toggles the edit mode for the profile.
+   */
   const handleClick = event => {
     setEdit(!edit);
     setUserProfile({ firstName, lastName });
   };
 
+  /**
+   * Handles changes in the form inputs.
+   *
+   * @param { Object } event - The event object.
+   */
   const handleChange = ({ currentTarget }) => {
     const { id, value } = currentTarget;
 
     setUserProfile((value.trim() === '') ? { ...userProfile } : { ...userProfile, [ id ]: value });
   };
-  
+
+  /**
+   * Handles the form submission.
+   *
+   * @param { Object } event - The event object.
+   */
   const handleSubmit = async event => {
     event.preventDefault();
 

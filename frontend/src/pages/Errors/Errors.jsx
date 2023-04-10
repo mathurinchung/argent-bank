@@ -2,6 +2,12 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { Main } from '@/components/Layout';
 import errors from '@/data/errors.json';
 
+/**
+ * Errors component function.
+ * It displays the error page UI based on the error params in the URL.
+ *
+ * @returns {JSX.Element} Errors component UI.
+ */
 function Errors() {
   const { errorParams } = useParams();
   if (errorParams === 'unauthorized') return (<Navigate to="/login" />);

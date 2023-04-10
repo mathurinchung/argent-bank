@@ -1,6 +1,15 @@
 import PropTypes from 'prop-types';
 import { formatNumber } from '@/utils';
 
+/**
+ * A functional component that renders an account section.
+ *
+ * @param { Object } account - An object representing the account.
+ * @param { String } account.title - The title of the account.
+ * @param { Number } account.amount - The amount of money in the account.
+ * @param { String } account.description - The description of the account.
+ * @returns { JSX.Element } The JSX element for the account section.
+*/
 function AccountSection({ account }) {
   return (
     <section className="account">
@@ -17,7 +26,12 @@ function AccountSection({ account }) {
 }
 
 AccountSection.propTypes = {
-  account: PropTypes.object.isRequired
+  // An object representing the account.
+  account: PropTypes.shape({
+    title: PropTypes.string.isRequired,      // The title of the account.
+    amount: PropTypes.string.isRequired,     // The amount of money in the account.
+    description: PropTypes.string.isRequired // The description of the account.
+  }).isRequired
 };
 
 export default AccountSection;
