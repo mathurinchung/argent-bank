@@ -14,8 +14,8 @@ function EditProfileForm({ onHandle }) {
 
   return (
     <form onSubmit={ submit }>
-      <input id="firstName" type="text" placeholder="Tony" onChange={ change } />
-      <input id="lastName" type="text" placeholder="Jarvis" onChange={ change } />
+      <input id="firstName" type="text" placeholder="Firstname" onChange={ change } />
+      <input id="lastName" type="text" placeholder="Lastname" onChange={ change } />
 
       <button className="edit-button" type="submit">Save</button>
       <button className="edit-button" type="button" onClick={ click }>Cancel</button>
